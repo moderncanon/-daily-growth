@@ -11,33 +11,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
 
   <style>
-   :root{
-  /* Modern Canon palette */
+:root{
+  /* Core ink + paper */
+  --bg: #f4f7f7;
+  --surface: #ffffff;
+
+  --text: rgba(16,22,24,0.96);
+  --muted: rgba(16,22,24,0.70);
+  --muted2: rgba(16,22,24,0.52);
+
+  /* Teal-forward accent system */
+  --teal-strong: #1f9e93;
+  --teal: #2fb4a8;
+  --teal-soft: rgba(47,180,168,0.14);
+  --teal-border: rgba(47,180,168,0.45);
+
+  /* Gold becomes secondary */
   --gold: #b08245;
-  --charcoal: #393939;
-  --cream: #f5f5dc;
-  --deep-teal: #2f4f4f;
-  --slate: #36454f;
 
-  /* Light mode: paper + ink (high contrast) */
-  --bg: #f6f4ee;                 /* warm paper */
-  --surface: rgba(255,255,255,0.82);
-  --panel: rgba(255,255,255,0.72);
-  --panel2: rgba(255,255,255,0.85);
-  --border: rgba(54,69,79,0.26);
+  --border: rgba(16,22,24,0.16);
+  --shadow: 0 20px 55px rgba(0,0,0,0.16);
 
-  --text: rgba(18,22,24, 0.96);   /* ink */
-  --muted: rgba(18, 22, 24, 0.72);
-  --muted2: rgba(18, 22, 24, 0.56);
-
-  /* Accents */
-  --accent: #2fb4a8;             /* teal pop */
-  --accent2: #d2a45f;            /* brighter gold */
-  --accentGlow: rgba(47,180,168,0.22);
-  --goldGlow: rgba(210,164,95,0.22);
-
-  --shadow: 0 18px 55px rgba(0,0,0,0.22);
   --radius: 18px;
+}
 
   --brand: "Poller One", ui-serif, Georgia, serif;
   --sans: "Gotham", "Gotham SSm", "Gotham Rounded", "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -49,10 +45,9 @@
     body{
       margin:0;
       font-family: var(--sans);
-     background:
-  radial-gradient(900px 420px at 18% 12%, rgba(210,164,95,0.24), transparent 60%),
-  radial-gradient(700px 420px at 86% 22%, rgba(47,180,168,0.18), transparent 55%),
-  radial-gradient(900px 520px at 50% 115%, rgba(54,69,79,0.12), transparent 60%),
+background:
+  radial-gradient(900px 500px at 18% 8%, rgba(47,180,168,0.25), transparent 60%),
+  radial-gradient(900px 500px at 88% 12%, rgba(31,158,147,0.18), transparent 60%),
   var(--bg);
       color: var(--text);
       display:flex;
@@ -64,11 +59,11 @@
     .wrap{ width:min(920px, 100%); }
 
 .card{
-  background: rgba(255,255,255,0.90);
-  border: 1px solid rgba(54,69,79,0.18);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal-strong);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow:hidden;
 }
 
  .topbar{
@@ -149,9 +144,10 @@ button{
 }
 
 button.primary{
-  background: linear-gradient(135deg, rgba(47,180,168,0.22), rgba(47,180,168,0.12));
-  border-color: rgba(47,180,168,0.55);
-  box-shadow: 0 10px 22px rgba(47,180,168,0.10);
+  background: linear-gradient(135deg, #2fb4a8, #1f9e93);
+  border: 1px solid #1f9e93;
+  color: white;
+  box-shadow: 0 10px 25px rgba(47,180,168,0.35);
 }
 
 button:hover{
