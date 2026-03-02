@@ -678,7 +678,7 @@ Quick response:
       await copyToClipboard(taskCardPayload());
       showToast("Task card copied.");
       if(TASK_BOARD_URL && TASK_BOARD_URL.startsWith("http")){
-        window.open(TASK_BOARD_URL, "_blank", "noopener,noreferrer");
+        window.open(TASK_BOARD_URL, "_blank");
       } else {
         showToast("Paste your task board URL in the code.");
       }
