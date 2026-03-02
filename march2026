@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Canon | Daily Growth Prompt</title>
+
+  <!-- Poller One (Google Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Modern Canon palette (from your image) */
+      --gold: #b08245;
+      --charcoal: #393939;
+      --cream: #f5f5dc;
+      --deep-teal: #2f4f4f;
+      --slate: #36454f;
+
+      --bg: #121212;
+      --card: rgba(245,245,220,0.06);
+      --card2: rgba(245,245,220,0.10);
+      --border: rgba(245,245,220,0.14);
+
+      --text: rgba(245,245,220,0.93);
+      --muted: rgba(245,245,220,0.72);
+      --muted2: rgba(245,245,220,0.55);
+
+      --shadow: 0 18px 55px rgba(0,0,0,0.55);
+      --radius: 18px;
+
+      --brand: "Poller One", ui-serif, Georgia, serif;
+      --sans: "Gotham", "Gotham SSm", "Gotham Rounded", "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(900px 420px at 18% 12%, rgba(176,130,69,0.22), transparent 60%),
+        radial-gradient(700px 420px at 86% 22%, rgba(47,79,79,0.18), transparent 55%),
+        radial-gradient(900px 520px at 50% 110%, rgba(54,69,79,0.22), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+
+    .wrap{ width:min(900px, 100%); }
+
+    .card{
+      background: linear-gradient(180deg, rgba(245,245,220,0.07), rgba(245,245,220,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .topbar{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      border-bottom: 1px solid rgba(245,245,220,0.10);
+      background: rgba(18,18,18,0.55);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 230px;
+    }
+
+    .mark{
+      width:34px;height:34px;border-radius:12px;
+      border: 1px solid rgba(245,245,220,0.16);
+      background:
+        radial-gradient(14px 14px at 32% 32%, rgba(176,130,69,0.85), transparent 60%),
+        radial-gradient(16px 16px at 70% 70%, rgba(47,79,79,0.70), transparent 62%),
+        rgba(245,245,220,0.05);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 180deg,
+        rgba(176,130,69,0.0),
+        rgba(176,130,69,0.18),
+        rgba(47,79,79,0.0),
+        rgba(54,69,79,0.15),
+        rgba(176,130,69,0.0)
+      );
+      animation: spin 10s linear infinite;
+    }
+    @keyframes spin{ to{ transform: rotate(360deg);} }
+
+    .brand h1{
+      font-family: var(--brand);
+      font-size: 16px;
+      margin:0;
+      letter-spacing: 0.06em;
+      color: rgba(245,245,220,0.94);
+    }
+    .brand .sub{
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top:2px;
+    }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    select, button{
+      font-family: var(--sans);
+      border-radius: 14px;
+      border: 1px solid rgba(245,245,220,0.16);
+      background: rgba(245,245,220,0.06);
+      color: var(--text);
+      padding:10px 12px;
+      font-size: 12.5px;
+      outline:none;
+      cursor:pointer;
+      transition: transform .06s ease, background .18s ease, border-color .18s ease;
+    }
+
+    select{
+      cursor: default;
+      padding-right: 32px;
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(245,245,220,0.70) 50%),
+        linear-gradient(135deg, rgba(245,245,220,0.70) 50%, transparent 50%),
+        linear-gradient(to right, transparent, transparent);
+      background-position:
+        calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px),
+        calc(100% - 2.2em) 0.5em;
+      background-size: 6px 6px, 6px 6px, 1px 1.5em;
+      background-repeat: no-repeat;
+    }
+
+    button.primary{
+      background: rgba(176,130,69,0.18);
+      border-color: rgba(176,130,69,0.32);
+    }
+
+    button:hover, select:hover{
+      background: rgba(245,245,220,0.095);
+      border-color: rgba(245,245,220,0.22);
+    }
+    button.primary:hover{
+      background: rgba(176,130,69,0.24);
+      border-color: rgba(176,130,69,0.40);
+    }
+    button:active{ transform: translateY(1px); }
+
+    .content{
+      padding: 18px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+    }
+    @media (max-width: 760px){
+      .content{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+    }
+
+    .prompt{
+      background: rgba(245,245,220,0.045);
+      border: 1px solid rgba(245,245,220,0.11);
+      border-radius: 16px;
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size: 12px;
+      color: rgba(245,245,220,0.80);
+      background: rgba(47,79,79,0.18);
+      border: 1px solid rgba(47,79,79,0.30);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(176,130,69,0.16);
+    }
+
+    .date{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    .prompt h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: rgba(245,245,220,0.95);
+    }
+
+    .prompt p{
+      margin:0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(245,245,220,0.84);
+    }
+
+    .sidebar{
+      background: rgba(245,245,220,0.035);
+      border: 1px solid rgba(245,245,220,0.11);
+      border-radius: 16px;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+
+    .sidebar h3{
+      margin:0;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,245,220,0.78);
+    }
+
+    .steps{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .steps li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 10px;
+      background: rgba(245,245,220,0.04);
+      border: 1px solid rgba(245,245,220,0.08);
+      border-radius: 14px;
+    }
+    .num{
+      flex: 0 0 auto;
+      width: 22px; height: 22px; border-radius: 9px;
+      display:grid; place-items:center;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(18,18,18,0.90);
+      background: linear-gradient(135deg, rgba(176,130,69,0.92), rgba(47,79,79,0.72));
+    }
+    .steps b{
+      display:block;
+      font-size: 12.5px;
+      margin-bottom:2px;
+      color: rgba(245,245,220,0.92);
+    }
+    .steps span{
+      display:block;
+      font-size: 12.5px;
+      color: rgba(245,245,220,0.74);
+      line-height:1.35;
+    }
+
+    .footer{
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(245,245,220,0.10);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(18,18,18,0.92);
+      border: 1px solid rgba(245,245,220,0.14);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      color: rgba(245,245,220,0.88);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: 5;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    a.linkish{
+      color: rgba(176,130,69,0.95);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(176,130,69,0.55);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card" role="application" aria-label="Modern Canon growth prompt widget">
+      <div class="topbar">
+        <div class="brand">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>Modern Canon</h1>
+            <div class="sub">Growth prompt engine</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <select id="category" aria-label="Select category">
+            <option value="all">All prompts</option>
+            <option value="positioning">Positioning</option>
+            <option value="offers">Offers</option>
+            <option value="channels">Channels</option>
+            <option value="content">Content</option>
+            <option value="sales">Sales</option>
+            <option value="ops">Ops</option>
+            <option value="partnerships">Partnerships</option>
+            <option value="retention">Retention</option>
+          </select>
+
+          <button id="daily" type="button" title="Stable pick for today">Daily pick</button>
+          <button id="shuffle" class="primary" type="button" title="Random prompt">Random</button>
+          <button id="copy" type="button">Copy</button>
+          <button id="post" type="button">Post to task board</button>
+        </div>
+      </div>
+
+      <div class="content">
+        <section class="prompt">
+          <div class="meta">
+            <div class="pill" id="pill"><span class="dot"></span><span id="pillText">All</span></div>
+            <div class="date" id="date"></div>
+          </div>
+
+          <h2 id="title">Prompt</h2>
+          <p id="promptText"></p>
+        </section>
+
+        <aside class="sidebar">
+          <h3>7-minute flow</h3>
+          <ul class="steps">
+            <li><div class="num">1</div><div><b>Answer fast</b><span>Write rough. Capture signal.</span></div></li>
+            <li><div class="num">2</div><div><b>Choose one move</b><span>One action you can ship this week.</span></div></li>
+            <li><div class="num">3</div><div><b>Name the proof</b><span>Metric or observable outcome.</span></div></li>
+          </ul>
+
+          <div style="font-size:12px;color:rgba(245,245,220,0.70);line-height:1.4;">
+            “Post to task board” copies a task card and opens your board link so you can paste it as a new task.
+          </div>
+        </aside>
+      </div>
+
+      <div class="footer">
+        <div>Random mode + optional daily stability. Category filters keep things focused.</div>
+        <div><a class="linkish" href="#" id="reset" title="Clear custom pick">Reset</a></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+  </div>
+
+  <script>
+    /*********************************************************
+     * CONFIG: paste your Notion task board URL here
+     * Example: https://www.notion.so/yourworkspace/Your-Board-xxxxxxxxxxxx
+     *********************************************************/
+    const TASK_BOARD_URL = "https://www.notion.so/1e43013acea5811a8c53e7cf15199309?v=1e43013acea5818aa6f8000ca0694315&source=copy_link";
+
+    const PROMPTS = [
+      // Positioning
+      { cat: "positioning", text: "Write your one-liner: “We help [who] get [result] without [pain].” What’s the weakest word, and what sharper word replaces it?" },
+      { cat: "positioning", text: "List 3 competitors or alternatives. For each: what do they claim, and what do they avoid saying? Where can you plant your flag?" },
+      { cat: "positioning", text: "Define your anti-customer in one sentence. What behavior screams “not a fit,” and how do you signal that upfront?" },
+      { cat: "positioning", text: "What proof do you have that feels unfair? Turn it into a two-line claim + evidence pair." },
+
+      // Offers
+      { cat: "offers", text: "Audit your offer: outcome, timeline, price, risk reversal. Which one is vague? Rewrite it so it’s unmistakable." },
+      { cat: "offers", text: "Design a ‘starter’ offer: smaller scope, fast win. What single deliverable creates momentum in 48 hours?" },
+      { cat: "offers", text: "If you could only sell one package for 30 days, what is it? What would you remove to make ‘yes’ effortless?" },
+      { cat: "offers", text: "Write a confidence builder: a guarantee you can control. What can you stand behind every time?" },
+
+      // Channels
+      { cat: "channels", text: "Pick one channel. Define the weekly cadence: create, distribute, follow up. Where does it break today?" },
+      { cat: "channels", text: "Where do your best clients already hang out (specific communities, events, newsletters)? List 10, then circle the 2 you can show up in weekly." },
+      { cat: "channels", text: "Design a referral loop: what’s the moment clients are happiest, and what’s the easiest ask right then?" },
+
+      // Content
+      { cat: "content", text: "Turn one client question into 3 assets: post, checklist, short Loom. What’s the smallest version you can ship today?" },
+      { cat: "content", text: "Write a before/after story: before state, turning point, after state, measurable change. What detail makes it believable?" },
+      { cat: "content", text: "List 5 myths your audience believes that slow them down. Which myth can you disprove with one example?" },
+      { cat: "content", text: "Pick one metric your content should influence (leads, calls booked, replies). What CTA matches that metric best?" },
+
+      // Sales
+      { cat: "sales", text: "Review your last 10 sales convos. Where did they stall: price, urgency, trust, clarity? Write one question that would have clarified sooner." },
+      { cat: "sales", text: "Write a decision email: Option A, B, C with outcomes and next steps. Make choosing easy." },
+      { cat: "sales", text: "Define the minimum proof needed to buy: case study, sample, walkthrough, guarantee, references. Which is missing right now?" },
+
+      // Ops
+      { cat: "ops", text: "If you doubled clients next month, what breaks first? Pick one choke point and write the SOP in 8 bullets." },
+      { cat: "ops", text: "Track a cycle time: lead→paid or paid→delivered. What step causes the longest wait, and what would cut it in half?" },
+      { cat: "ops", text: "Write the definition of done for your most common deliverable. What must be true before it ships?" },
+
+      // Partnerships
+      { cat: "partnerships", text: "List 10 adjacent providers your clients already trust. What low-lift co-offer could you propose this week?" },
+      { cat: "partnerships", text: "Draft a partnership pitch in 4 lines: who you serve, what you do, mutual win, smallest next step." },
+
+      // Retention
+      { cat: "retention", text: "Identify your sticky moment: what experience makes clients stay. How can you deliver it earlier?" },
+      { cat: "retention", text: "Outline a monthly value email: 1 insight, 1 win, 1 recommendation, 1 next action. What goes in this month?" },
+      { cat: "retention", text: "Pick one success metric clients care about. How will you report it simply every week?" }
+    ];
+
+    const els = {
+      cat: document.getElementById("category"),
+      pillText: document.getElementById("pillText"),
+      date: document.getElementById("date"),
+      title: document.getElementById("title"),
+      promptText: document.getElementById("promptText"),
+      daily: document.getElementById("daily"),
+      shuffle: document.getElementById("shuffle"),
+      copy: document.getElementById("copy"),
+      post: document.getElementById("post"),
+      reset: document.getElementById("reset"),
+      toast: document.getElementById("toast"),
+    };
+
+    function yyyyMmDd(d){
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,"0");
+      const day = String(d.getDate()).padStart(2,"0");
+      return `${y}-${m}-${day}`;
+    }
+
+    // Simple seeded hash -> 32-bit int (for daily pick stability)
+    function hash32(str){
+      let h = 2166136261;
+      for(let i=0;i<str.length;i++){
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function niceCat(cat){
+      if(cat === "all") return "All";
+      return cat.charAt(0).toUpperCase() + cat.slice(1);
+    }
+
+    function getFiltered(cat){
+      return (cat === "all") ? PROMPTS.slice() : PROMPTS.filter(p => p.cat === cat);
+    }
+
+    function showToast(msg){
+      els.toast.textContent = msg;
+      els.toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=> els.toast.classList.remove("show"), 1400);
+    }
+
+    // Storage keys
+    function keyMode(){ return `mc_mode_${yyyyMmDd(new Date())}`; }          // "daily" or "random"
+    function keyPick(cat){ return `mc_pick_${yyyyMmDd(new Date())}_${cat}`; } // session pick for current day + category
+
+    function setMode(m){ localStorage.setItem(keyMode(), m); }
+    function getMode(){ return localStorage.getItem(keyMode()) || "random"; }
+
+    function setPick(cat, idx){ sessionStorage.setItem(keyPick(cat), String(idx)); }
+    function getPick(cat){
+      const v = sessionStorage.getItem(keyPick(cat));
+      return v === null ? null : Number(v);
+    }
+    function clearPick(cat){ sessionStorage.removeItem(keyPick(cat)); }
+
+    function dailyIndex(cat){
+      const today = yyyyMmDd(new Date());
+      const seed = `modern-canon|${today}|${cat}`;
+      const arr = getFiltered(cat);
+      if(!arr.length) return 0;
+      return hash32(seed) % arr.length;
+    }
+
+    function randomIndexAvoid(arr, avoidIdx){
+      if(arr.length <= 1) return 0;
+      let idx = Math.floor(Math.random() * arr.length);
+      while(idx === avoidIdx) idx = Math.floor(Math.random() * arr.length);
+      return idx;
+    }
+
+    function currentPrompt(){
+      const cat = els.cat.value;
+      const arr = getFiltered(cat);
+      if(!arr.length) return { cat, idx: 0, prompt: null };
+
+      const mode = getMode();
+      if(mode === "daily"){
+        const idx = dailyIndex(cat);
+        return { cat, idx, prompt: arr[idx] };
+      }
+
+      // random mode: use session pick if exists; otherwise choose now
+      const existing = getPick(cat);
+      if(existing !== null && arr[existing]) return { cat, idx: existing, prompt: arr[existing] };
+
+      const idx = Math.floor(Math.random() * arr.length);
+      setPick(cat, idx);
+      return { cat, idx, prompt: arr[idx] };
+    }
+
+    function render(){
+      els.pillText.textContent = niceCat(els.cat.value);
+      els.date.textContent = new Date().toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" });
+
+      const mode = getMode();
+      els.title.textContent = (mode === "daily") ? "Today’s prompt" : "Random prompt";
+
+      const { prompt } = currentPrompt();
+      els.promptText.textContent = prompt ? prompt.text : "No prompts available for this category yet.";
+    }
+
+    function setDaily(){
+      setMode("daily");
+      render();
+      showToast("Daily pick locked.");
+    }
+
+    function shuffle(){
+      setMode("random");
+      const cat = els.cat.value;
+      const arr = getFiltered(cat);
+      if(!arr.length) return render();
+
+      const current = getPick(cat);
+      const avoid = (current !== null) ? current : -1;
+      const next = randomIndexAvoid(arr, avoid);
+      setPick(cat, next);
+      render();
+      showToast("Random prompt served.");
+    }
+
+    async function copyCard({ forTaskBoard = false } = {}){
+      const mode = getMode();
+      const stamp = yyyyMmDd(new Date());
+      const catLabel = niceCat(els.cat.value);
+
+      const { prompt } = currentPrompt();
+      const text = prompt ? prompt.text : "";
+
+      const title = forTaskBoard
+        ? `Growth prompt: ${catLabel} (${stamp})`
+        : `Modern Canon | Growth prompt (${stamp})`;
+
+      const payload =
+`${title}
+Category: ${catLabel}
+Mode: ${mode}
+
+Prompt:
+${text}
+
+Response:
+- Notes:
+- One action to ship this week:
+- Signal to track:`;
+
+      try{
+        await navigator.clipboard.writeText(payload);
+      } catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = payload;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      return payload;
+    }
+
+    async function postToTaskBoard(){
+      await copyCard({ forTaskBoard: true });
+      showToast("Task card copied.");
+
+      // Open your Notion board so you can paste the task as a new item.
+      if(TASK_BOARD_URL && TASK_BOARD_URL.startsWith("http")){
+        window.open(TASK_BOARD_URL, "_blank", "noopener,noreferrer");
+      } else {
+        showToast("Paste your task board URL in the code.");
+      }
+    }
+
+    els.cat.addEventListener("change", () => {
+      // Keep random picks separate per category (sessionStorage key includes category)
+      render();
+    });
+
+    els.daily.addEventListener("click", setDaily);
+    els.shuffle.addEventListener("click", shuffle);
+
+    els.copy.addEventListener("click", async () => {
+      await copyCard();
+      showToast("Copied.");
+    });
+
+    els.post.addEventListener("click", postToTaskBoard);
+
+    els.reset.addEventListener("click", (e) => {
+      e.preventDefault();
+      const cat = els.cat.value;
+      clearPick(cat);
+      setMode("random");
+      render();
+      showToast("Reset.");
+    });
+
+    // initial
+    render();
+  </script>
+</body>
+</html>
