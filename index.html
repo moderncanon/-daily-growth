@@ -49,10 +49,10 @@
     body{
       margin:0;
       font-family: var(--sans);
-      background:
-  radial-gradient(900px 420px at 18% 12%, rgba(47,180,168,0.28), transparent 60%),
-  radial-gradient(700px 420px at 86% 22%, rgba(240,194,122,0.22), transparent 55%),
-  radial-gradient(900px 520px at 50% 115%, rgba(47,180,168,0.16), transparent 60%),
+     background:
+  radial-gradient(900px 420px at 18% 12%, rgba(210,164,95,0.24), transparent 60%),
+  radial-gradient(700px 420px at 86% 22%, rgba(47,180,168,0.18), transparent 55%),
+  radial-gradient(900px 520px at 50% 115%, rgba(54,69,79,0.12), transparent 60%),
   var(--bg);
       color: var(--text);
       display:flex;
@@ -64,8 +64,8 @@
     .wrap{ width:min(920px, 100%); }
 
     .card{
-      background: linear-gradient(180deg, rgba(245,245,220,0.07), rgba(245,245,220,0.04));
-      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
@@ -78,7 +78,7 @@
       justify-content:space-between;
       padding:16px 18px;
       border-bottom: 1px solid rgba(245,245,220,0.10);
-      background: rgba(18,18,18,0.55);
+     background: rgba(255,255,255,0.78);
       backdrop-filter: blur(8px);
     }
 
@@ -148,16 +148,15 @@
       transition: transform .06s ease, background .18s ease, border-color .18s ease;
     }
 
-    button.primary{
-  background: linear-gradient(135deg, rgba(47,180,168,0.30), rgba(47,180,168,0.18));
-  border-color: rgba(47,180,168,0.55);
-  box-shadow: 0 0 0 1px rgba(47,180,168,0.12), 0 12px 26px rgba(0,0,0,0.35);
+ button.primary{
+  background: linear-gradient(135deg, rgba(47,180,168,0.22), rgba(47,180,168,0.12));
+  border-color: rgba(47,180,168,0.45);
+  box-shadow: 0 0 0 1px rgba(47,180,168,0.10), 0 12px 26px rgba(0,0,0,0.10);
 }
 
     button:hover{
-  background: rgba(245,245,220,0.11);
-  border-color: rgba(245,245,220,0.26);
-  box-shadow: 0 0 0 2px rgba(245,245,220,0.06);
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(54,69,79,0.22);
 }
     button.primary:hover{
       background: rgba(176,130,69,0.24);
@@ -176,12 +175,36 @@
       .brand{ min-width: unset; }
     }
 
-    .prompt{
-      background: rgba(245,245,220,0.045);
-      border: 1px solid rgba(245,245,220,0.11);
-      border-radius: 16px;
-      padding: 16px;
-    }
+ .prompt{
+  position: relative;
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(54,69,79,0.14);
+  border-radius: 16px;
+  padding: 16px 16px 16px 22px; /* extra left padding for stripe */
+  overflow: hidden;
+}
+    /* Gold bookmark stripe */
+.prompt::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(
+    180deg,
+    rgba(210,164,95,0.95),
+    rgba(176,130,69,0.85)
+  );
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  box-shadow:
+    2px 0 8px rgba(210,164,95,0.25);
+}
+    .prompt:hover::before{
+  box-shadow:
+    2px 0 14px rgba(210,164,95,0.45);
+}
 
     .meta{
       display:flex;
@@ -192,17 +215,17 @@
       flex-wrap:wrap;
     }
 
-    .pill{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      font-size: 12px;
-      color: rgba(245,245,220,0.80);
-      background: rgba(47,79,79,0.18);
-      border: 1px solid rgba(47,79,79,0.30);
-      padding: 7px 10px;
-      border-radius: 999px;
-    }
+  .pill{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-size: 12px;
+  color: rgba(22,26,28,0.78);
+  background: linear-gradient(135deg, rgba(47,180,168,0.14), rgba(210,164,95,0.10));
+  border: 1px solid rgba(54,69,79,0.14);
+  padding: 7px 10px;
+  border-radius: 999px;
+}
     .dot{
       width:8px;height:8px;border-radius:99px;
       background: var(--gold);
@@ -242,8 +265,8 @@
     }
 
     .sidebar{
-      background: rgba(245,245,220,0.035);
-      border: 1px solid rgba(245,245,220,0.11);
+      background: rgba(255,255,255,0.72);
+border: 1px solid rgba(54,69,79,0.14);
       border-radius: 16px;
       padding: 16px;
       display:flex;
