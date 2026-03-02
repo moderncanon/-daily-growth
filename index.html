@@ -5,49 +5,53 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Modern Canon | Daily strategy prompt</title>
 
-  <!-- Poller One (Google Font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
 
   <style>
-:root{
-  /* Primary (main) */
-  --teal: #2f4f4f;   /* from your swatch */
-  --slate: #36454f;  /* from your swatch */
+    :root{
+      /* Core ink + paper */
+      --bg: #f4f7f7;
+      --surface: rgba(255,255,255,0.92);
 
-  /* Accents */
-  --gold: #b08245;
-  --cream: #f5f5dc;
+      --text: rgba(16,22,24,0.96);
+      --muted: rgba(16,22,24,0.70);
+      --muted2: rgba(16,22,24,0.52);
 
-  /* Dark-forward UI */
-  --bg: #0f1416;                /* deep neutral */
-  --surface: rgba(54,69,79,0.40);
-  --surface2: rgba(47,79,79,0.26);
-  --border: rgba(245,245,220,0.18);
+      /* Main colors (your chosen primaries) */
+      --teal-deep: #2f4f4f;
+      --slate-deep: #36454f;
 
-  --text: rgba(245,245,220,0.92);   /* cream ink */
-  --muted: rgba(245,245,220,0.72);
-  --muted2: rgba(245,245,220,0.55);
+      /* Accent colors */
+      --teal: #2fb4a8;
+      --teal-strong: #1f9e93;
+      --teal-soft: rgba(47,180,168,0.14);
+      --teal-border: rgba(47,180,168,0.45);
 
-  --shadow: 0 22px 60px rgba(0,0,0,0.60);
-  --radius: 18px;
+      --gold: #b08245;
+      --cream: #f5f5dc;
 
-  --brand: "Poller One", ui-serif, Georgia, serif;
-  --sans: "Gotham", "Gotham SSm", "Gotham Rounded", "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
+      --border: rgba(16,22,24,0.16);
+      --shadow: 0 22px 60px rgba(0,0,0,0.16);
+      --radius: 18px;
+
+      --brand: "Poller One", ui-serif, Georgia, serif;
+      --sans: "Gotham", "Gotham SSm", "Gotham Rounded", "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+
     body{
       margin:0;
       font-family: var(--sans);
-background:
-  radial-gradient(1100px 520px at 18% 10%, rgba(47,79,79,0.55), transparent 62%),
-  radial-gradient(900px 520px at 88% 14%, rgba(54,69,79,0.65), transparent 62%),
-  radial-gradient(900px 520px at 50% 120%, rgba(176,130,69,0.18), transparent 60%),
-  var(--bg);
+      background:
+        radial-gradient(1000px 520px at 18% 10%, rgba(47,180,168,0.22), transparent 60%),
+        radial-gradient(900px 520px at 88% 14%, rgba(47,79,79,0.18), transparent 62%),
+        radial-gradient(900px 520px at 50% 120%, rgba(54,69,79,0.10), transparent 60%),
+        var(--bg);
       color: var(--text);
       display:flex;
       align-items:center;
@@ -57,33 +61,34 @@ background:
 
     .wrap{ width:min(920px, 100%); }
 
-.card{
-  position: relative;
-  background: linear-gradient(180deg, rgba(54,69,79,0.55), rgba(15,20,22,0.92));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-}
-.card::after{
-  content:"";
-  position:absolute;
-  inset: 1px;
-  pointer-events:none;
-  border-radius: calc(var(--radius) - 1px);
-  box-shadow: inset 0 1px 0 rgba(245,245,220,0.10);
-}
+    .card{
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.90));
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--teal-deep);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:1px;
+      pointer-events:none;
+      border-radius: calc(var(--radius) - 1px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.80);
+    }
 
-.topbar{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 18px;
-  border-bottom: 1px solid rgba(245,245,220,0.12);
-  background: linear-gradient(180deg, rgba(47,79,79,0.35), rgba(15,20,22,0.55));
-  backdrop-filter: blur(10px);
-}
+    .topbar{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      border-bottom: 1px solid rgba(16,22,24,0.10);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
 
     .brand{
       display:flex;
@@ -94,12 +99,12 @@ background:
 
     .mark{
       width:34px;height:34px;border-radius:12px;
-      border: 1px solid rgba(245,245,220,0.16);
+      border: 1px solid rgba(16,22,24,0.10);
       background:
-        radial-gradient(14px 14px at 32% 32%, rgba(176,130,69,0.85), transparent 60%),
-        radial-gradient(16px 16px at 70% 70%, rgba(47,79,79,0.70), transparent 62%),
-        rgba(245,245,220,0.05);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+        radial-gradient(14px 14px at 32% 32%, rgba(176,130,69,0.45), transparent 60%),
+        radial-gradient(16px 16px at 70% 70%, rgba(47,79,79,0.35), transparent 62%),
+        rgba(255,255,255,0.65);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.16);
       position:relative;
       overflow:hidden;
     }
@@ -107,11 +112,11 @@ background:
       content:"";
       position:absolute; inset:-40%;
       background: conic-gradient(from 180deg,
-        rgba(176,130,69,0.0),
-        rgba(176,130,69,0.18),
-        rgba(47,79,79,0.0),
-        rgba(54,69,79,0.15),
-        rgba(176,130,69,0.0)
+        rgba(47,180,168,0.00),
+        rgba(47,180,168,0.18),
+        rgba(176,130,69,0.00),
+        rgba(54,69,79,0.14),
+        rgba(47,180,168,0.00)
       );
       animation: spin 10s linear infinite;
     }
@@ -122,7 +127,7 @@ background:
       font-size: 16px;
       margin:0;
       letter-spacing: 0.06em;
-      color: rgba(245,245,220,0.94);
+      color: rgba(16,22,24,0.92);
     }
     .brand .sub{
       font-size: 12px;
@@ -138,31 +143,41 @@ background:
       justify-content:flex-end;
     }
 
-button{
-  font-family: var(--sans);
-  border-radius: 14px;
-  border: 1px solid rgba(245,245,220,0.16);
-  background: rgba(54,69,79,0.35);
-  color: var(--text);
-  padding:10px 12px;
-  font-size: 12.5px;
-  cursor:pointer;
-  transition: transform .08s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-button.primary{
-  background: linear-gradient(135deg, rgba(47,79,79,0.85), rgba(54,69,79,0.70));
-  border-color: rgba(245,245,220,0.18);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
-}
-button:hover{
-  transform: translateY(-1px);
-  background: rgba(54,69,79,0.48);
-  border-color: rgba(245,245,220,0.22);
-}
-button.primary:hover{
-  background: linear-gradient(135deg, rgba(47,79,79,0.92), rgba(54,69,79,0.78));
-  box-shadow: 0 18px 36px rgba(0,0,0,0.40);
-}
+    button{
+      font-family: var(--sans);
+      border-radius: 14px;
+      border: 1px solid rgba(16,22,24,0.16);
+      background: rgba(255,255,255,0.94);
+      color: var(--text);
+      padding:10px 12px;
+      font-size: 12.5px;
+      outline:none;
+      cursor:pointer;
+      transition: transform .08s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+    }
+
+    button.primary{
+      background: linear-gradient(135deg, var(--teal), var(--teal-strong));
+      border-color: rgba(31,158,147,0.90);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(47,180,168,0.26);
+    }
+
+    button:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.98);
+      border-color: rgba(16,22,24,0.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.10);
+    }
+
+    button.primary:hover{
+      background: linear-gradient(135deg, rgba(47,180,168,0.92), rgba(31,158,147,0.92));
+      box-shadow: 0 18px 34px rgba(47,180,168,0.30);
+    }
+
+    button:active{ transform: translateY(1px); }
+
     .content{
       padding: 18px;
       display:grid;
@@ -174,28 +189,27 @@ button.primary:hover{
       .brand{ min-width: unset; }
     }
 
-.prompt{
-  position: relative;
-  background: linear-gradient(180deg, rgba(245,245,220,0.07), rgba(245,245,220,0.04));
-  border: 1px solid rgba(245,245,220,0.14);
-  border-radius: 16px;
-  padding: 16px 16px 16px 22px; /* room for stripe */
-  overflow:hidden;
-}
-.prompt::before{
-  content:"";
-  position:absolute;
-  left:0; top:0; bottom:0;
-  width:6px;
-  background: linear-gradient(180deg, rgba(210,164,95,0.95), rgba(176,130,69,0.85));
-  border-top-left-radius:16px;
-  border-bottom-left-radius:16px;
-  box-shadow: 2px 0 16px rgba(176,130,69,0.28);
-}
-    .prompt:hover::before{
-  box-shadow:
-    2px 0 14px rgba(210,164,95,0.45);
-}
+    .prompt{
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.92));
+      border: 1px solid rgba(16,22,24,0.14);
+      border-radius: 16px;
+      padding: 16px 16px 16px 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+
+    /* teal-forward bookmark stripe */
+    .prompt::before{
+      content:"";
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width:6px;
+      background: linear-gradient(180deg, var(--teal), var(--teal-deep));
+      border-top-left-radius:16px;
+      border-bottom-left-radius:16px;
+      box-shadow: 2px 0 14px rgba(47,180,168,0.28);
+    }
 
     .meta{
       display:flex;
@@ -206,22 +220,23 @@ button.primary:hover{
       flex-wrap:wrap;
     }
 
-.pill{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  font-size: 12px;
-  color: rgba(245,245,220,0.86);
-  background: rgba(54,69,79,0.28);
-  border: 1px solid rgba(245,245,220,0.16);
-  padding: 7px 10px;
-  border-radius: 999px;
-}
-.dot{
-  width:8px;height:8px;border-radius:99px;
-  background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(176,130,69,0.18);
-}
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size: 12px;
+      color: rgba(16,22,24,0.74);
+      background: linear-gradient(135deg, rgba(47,180,168,0.16), rgba(54,69,79,0.10));
+      border: 1px solid rgba(47,180,168,0.20);
+      padding: 7px 10px;
+      border-radius: 999px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.70);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(176,130,69,0.14);
+    }
 
     .date{
       font-family: var(--mono);
@@ -229,56 +244,48 @@ button.primary:hover{
       color: var(--muted2);
     }
 
-.prompt h2{
-  margin: 0 0 10px;
-  font-size: 18px;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.prompt p{
-  margin:0 0 12px;
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(18,22,24,0.84);
-  white-space: pre-wrap;
-}
-
-.sidebar h3{
-  margin:0;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(18,22,24,0.72);
-}
+    .prompt h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .prompt p{
+      margin:0 0 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(16,22,24,0.84);
+      white-space: pre-wrap;
+    }
 
     .micro{
       margin-top: 10px;
       padding: 12px;
       border-radius: 14px;
-      border: 1px solid rgba(245,245,220,0.10);
-      background: rgba(245,245,220,0.03);
-      color: rgba(245,245,220,0.72);
+      border: 1px solid rgba(47,180,168,0.18);
+      background: rgba(47,180,168,0.06);
+      color: rgba(16,22,24,0.72);
       font-size: 12.5px;
       line-height: 1.45;
     }
 
-.sidebar{
-  background: rgba(255,255,255,0.94);
-  border: 1px solid rgba(54,69,79,0.18);
-  border-radius: 16px;
-  padding: 16px;
-  display:flex;
-  flex-direction:column;
-  gap: 12px;
-}
+    .sidebar{
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.90));
+      border: 1px solid rgba(16,22,24,0.14);
+      border-radius: 16px;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
 
     .sidebar h3{
       margin:0;
       font-size: 12px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(245,245,220,0.78);
+      color: rgba(16,22,24,0.70);
     }
 
     .steps{
@@ -289,31 +296,47 @@ button.primary:hover{
       padding:0;
       list-style:none;
     }
-  .steps li{
-  background: linear-gradient(180deg, rgba(47,79,79,0.22), rgba(54,69,79,0.16));
-  border: 1px solid rgba(245,245,220,0.12);
-  border-radius: 14px;
-}
-.num{
-  background: linear-gradient(135deg, rgba(176,130,69,0.95), rgba(47,79,79,0.70));
-  color: rgba(15,20,22,0.92);
-}
+    .steps li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 10px;
+      background: linear-gradient(180deg, rgba(47,180,168,0.08), rgba(47,180,168,0.04));
+      border: 1px solid rgba(47,180,168,0.18);
+      border-radius: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.70);
+    }
+    .num{
+      flex: 0 0 auto;
+      width: 22px; height: 22px; border-radius: 9px;
+      display:grid; place-items:center;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.96);
+      background: linear-gradient(135deg, var(--teal), var(--slate-deep));
+    }
     .steps b{
       display:block;
       font-size: 12.5px;
       margin-bottom:2px;
-      color: rgba(245,245,220,0.92);
+      color: rgba(16,22,24,0.88);
     }
     .steps span{
       display:block;
       font-size: 12.5px;
-      color: rgba(245,245,220,0.74);
+      color: rgba(16,22,24,0.68);
       line-height:1.35;
+    }
+
+    .sidehint{
+      font-size:12px;
+      color: rgba(16,22,24,0.62);
+      line-height:1.4;
     }
 
     .footer{
       padding: 14px 18px 18px;
-      border-top: 1px solid rgba(245,245,220,0.10);
+      border-top: 1px solid rgba(16,22,24,0.10);
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -328,13 +351,13 @@ button.primary:hover{
       left: 50%;
       bottom: 18px;
       transform: translateX(-50%);
-      background: rgba(18,18,18,0.92);
-      border: 1px solid rgba(245,245,220,0.14);
+      background: rgba(16,22,24,0.92);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 999px;
       padding: 10px 12px;
       font-size: 12.5px;
-      color: rgba(245,245,220,0.88);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+      color: rgba(255,255,255,0.88);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.20);
       opacity: 0;
       pointer-events:none;
       transition: opacity .18s ease, transform .18s ease;
@@ -346,42 +369,10 @@ button.primary:hover{
     }
 
     a.linkish{
-      color: rgba(176,130,69,0.95);
+      color: var(--gold);
       text-decoration: none;
       border-bottom: 1px dashed rgba(176,130,69,0.55);
     }
- /* ===== Readability patch (light mode, force ink + contrast) ===== */
-
-/* Global text defaults */
-body { color: rgba(18,22,24,0.96) !important; }
-
-/* Brand header */
-.brand h1 { color: rgba(18,22,24,0.92) !important; }
-.brand .sub { color: rgba(18,22,24,0.60) !important; }
-
-/* Prompt panel text */
-.prompt h2 { color: rgba(18,22,24,0.96) !important; }
-.prompt p  { color: rgba(18,22,24,0.84) !important; }
-.date      { color: rgba(18,22,24,0.56) !important; }
-#micro     { color: rgba(18,22,24,0.70) !important; }
-
-/* Sidebar readability (this is the main offender in your screenshot) */
-.sidebar h3 { color: rgba(18,22,24,0.72) !important; }
-.steps b    { color: rgba(18,22,24,0.88) !important; }
-.steps span { color: rgba(18,22,24,0.68) !important; }
-
-/* Step cards: make borders and fill slightly stronger */
-.steps li{
-  background: rgba(255,255,255,0.98) !important;
-  border: 1px solid rgba(54,69,79,0.22) !important;
-}
-
-/* Buttons: ensure labels are dark */
-button { color: rgba(18,22,24,0.92) !important; }
-
-/* Footer + link */
-.footer { color: rgba(18,22,24,0.60) !important; }
-a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55) !important; }
   </style>
 </head>
 
@@ -427,7 +418,7 @@ a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55)
             <li><div class="num">3</div><div><b>One signal</b><span>What proof will tell you it worked?</span></div></li>
           </ul>
 
-          <div style="font-size:12px;color:rgba(245,245,220,0.70);line-height:1.4;">
+          <div class="sidehint">
             “Post to task board” copies a rough task card (ideation mode) and opens your board so you can paste it.
           </div>
         </aside>
@@ -443,19 +434,8 @@ a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55)
   </div>
 
   <script>
-    /*********************************************************
-     * CONFIG: paste your Notion task board URL here
-     *********************************************************/
     const TASK_BOARD_URL = "https://www.notion.so/1e43013acea5811a8c53e7cf15199309?v=1e43013acea5818aa6f8000ca0694315&source=copy_link";
 
-    /*********************************************************
-     * PROMPT BANKS
-     * Rule:
-     * - Tue/Thu are client days
-     * - All other days are Modern Canon days (MC-heavy)
-     * - Each day maps deterministically to a prompt slot within its focus
-     * - Shuffle = random within today’s focus (doesn't change the default)
-     *********************************************************/
     const MC_PROMPTS = [
       "Modern Canon: Write our StoryBrand one-liner for the next 30 days: We help [who] achieve [result] without [villain]. Replace one vague word with a concrete one.",
       "Modern Canon: What is the one offer we want to sell most right now? Define outcome, timeline, proof, and the smallest next step.",
@@ -488,25 +468,18 @@ a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55)
     ];
 
     const CLIENT_PROMPTS = [
-      // Well + Core
       "Well + Core: Define the hero for the next 2 weeks. External problem, internal frustration, philosophical ‘this shouldn’t be so hard.’ Then write the StoryBrand one-liner.",
       "Well + Core: Choose one patient myth. Write a StoryBrand post: Hero → Problem → Guide → Plan → Success → CTA (consult/eval/resource).",
       "Well + Core: Where does the path stall (trust, scheduling, follow-through)? Write one micro-fix that reduces friction this week.",
       "Well + Core: Pick a geo phrase that converts. Outline: headline, 3 pain points, 3 trust builders, 1 plan, 1 CTA.",
-
-      // Tee Box
       "Tee Box: Choose one life moment (wedding, graduation, corporate, fundraiser). Write the StoryBrand angle and the next-step CTA.",
       "Tee Box: What is the easiest-to-say-yes offer right now? Rewrite it as a clear package with inclusions + next step.",
       "Tee Box: Local partnerships. List 10 adjacent partners. Draft a 4-sentence collaboration pitch that’s easy to accept.",
       "Tee Box: What proof closes event bookings? Identify what’s missing (photos, reviews, FAQs, pricing clarity) and where it should live.",
-
-      // KKCTX
       "KKCTX: Pick one impact story. Write: hero (family), problem, guide (KKCTX), plan, success. End with a donation/volunteer CTA.",
       "KKCTX: Rewrite one sponsorship tier to be more tangible: what does the sponsor get, and what does it make possible?",
       "KKCTX: Build a post-event follow-up loop: thank you, impact proof, next step, share ask. Keep it simple and repeatable.",
       "KKCTX: Identify 3 trust assets to spotlight (stats, testimonials, photos, transparency). Where do we place them for max confidence?",
-
-      // Generic client strategy
       "Client: Write the 3-step plan we want customers to follow. Make each step an action verb with one deliverable or proof item.",
       "Client: Biggest objection right now? Write a quick ‘decision email’ with 3 options (small/core/premium).",
       "Client: Pick one channel and define a weekly cadence for 4 weeks. What is the smallest shippable output each week?",
@@ -543,13 +516,11 @@ a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55)
       return new Date(d.getFullYear(), d.getMonth(), 1);
     }
 
-    // Tue/Thu = client day, all other days = Modern Canon
     function dailyFocus(date){
       const dow = date.getDay(); // 0 Sun ... 6 Sat
       return (dow === 2 || dow === 4) ? "client" : "mc";
     }
 
-    // 1-based occurrence count of focus days in current month INCLUDING today
     function nthFocusDayInMonth(date, focus){
       const som = startOfMonth(date);
       let count = 0;
@@ -559,23 +530,21 @@ a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55)
       return count;
     }
 
-    // Deterministic "today" prompt slot (no repeats until list runs out)
     function getTodayPrompt(){
       const today = new Date();
       const focus = dailyFocus(today);
 
       if(focus === "mc"){
-        const n = nthFocusDayInMonth(today, "mc");     // 1-based
+        const n = nthFocusDayInMonth(today, "mc");
         const idx = (n - 1) % MC_PROMPTS.length;
         return { focus, label: "Modern Canon", text: MC_PROMPTS[idx] };
       } else {
-        const n = nthFocusDayInMonth(today, "client"); // 1-based
+        const n = nthFocusDayInMonth(today, "client");
         const idx = (n - 1) % CLIENT_PROMPTS.length;
         return { focus, label: "Client day", text: CLIENT_PROMPTS[idx] };
       }
     }
 
-    // Session shuffle (doesn't affect today's default)
     function shufflePrompt(){
       const today = new Date();
       const focus = dailyFocus(today);
@@ -584,7 +553,6 @@ a.linkish{ color: #b08245 !important; border-bottom-color: rgba(176,130,69,0.55)
       return { focus, label: (focus === "mc") ? "Modern Canon" : "Client day", text: arr[idx] };
     }
 
-    // Store the current displayed prompt (default or shuffled) for copy/post
     let current = null;
 
     function renderToday(){
@@ -678,7 +646,6 @@ Quick response:
       showToast("Reset to today.");
     });
 
-    // init
     renderToday();
   </script>
 </body>
