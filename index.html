@@ -12,29 +12,33 @@
 
   <style>
     :root{
-      /* Modern Canon palette */
-      --gold: #b08245;
-      --charcoal: #393939;
-      --cream: #f5f5dc;
-      --deep-teal: #2f4f4f;
-      --slate: #36454f;
+  --gold: #b08245;
+  --charcoal: #393939;
+  --cream: #f5f5dc;
+  --deep-teal: #2f4f4f;
+  --slate: #36454f;
 
-      --bg: #121212;
-      --card: rgba(245,245,220,0.06);
-      --card2: rgba(245,245,220,0.10);
-      --border: rgba(245,245,220,0.14);
+  --bg: #0b1011;
+  --panel: rgba(245,245,220,0.07);
+  --panel2: rgba(245,245,220,0.11);
+  --border: rgba(245,245,220,0.18);
 
-      --text: rgba(245,245,220,0.93);
-      --muted: rgba(245,245,220,0.72);
-      --muted2: rgba(245,245,220,0.55);
+  --text: rgba(245,245,220,0.96);
+  --muted: rgba(245,245,220,0.76);
+  --muted2: rgba(245,245,220,0.58);
 
-      --shadow: 0 18px 55px rgba(0,0,0,0.55);
-      --radius: 18px;
+  --accent: #2fb4a8;       /* teal button */
+  --accent2: #f0c27a;      /* warm highlight */
+  --accentGlow: rgba(47,180,168,0.28);
+  --goldGlow: rgba(240,194,122,0.22);
 
-      --brand: "Poller One", ui-serif, Georgia, serif;
-      --sans: "Gotham", "Gotham SSm", "Gotham Rounded", "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
+  --shadow: 0 18px 55px rgba(0,0,0,0.58);
+  --radius: 18px;
+
+  --brand: "Poller One", ui-serif, Georgia, serif;
+  --sans: "Gotham", "Gotham SSm", "Gotham Rounded", "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
@@ -42,10 +46,11 @@
       margin:0;
       font-family: var(--sans);
       background:
-        radial-gradient(900px 420px at 18% 12%, rgba(176,130,69,0.22), transparent 60%),
-        radial-gradient(700px 420px at 86% 22%, rgba(47,79,79,0.18), transparent 55%),
-        radial-gradient(900px 520px at 50% 110%, rgba(54,69,79,0.22), transparent 60%),
-        var(--bg);
+        background:
+  radial-gradient(900px 420px at 18% 12%, rgba(47,180,168,0.28), transparent 60%),
+  radial-gradient(700px 420px at 86% 22%, rgba(240,194,122,0.22), transparent 55%),
+  radial-gradient(900px 520px at 50% 115%, rgba(47,180,168,0.16), transparent 60%),
+  var(--bg);
       color: var(--text);
       display:flex;
       align-items:center;
@@ -141,14 +146,16 @@
     }
 
     button.primary{
-      background: rgba(176,130,69,0.18);
-      border-color: rgba(176,130,69,0.32);
-    }
+  background: linear-gradient(135deg, rgba(47,180,168,0.30), rgba(47,180,168,0.18));
+  border-color: rgba(47,180,168,0.55);
+  box-shadow: 0 0 0 1px rgba(47,180,168,0.12), 0 12px 26px rgba(0,0,0,0.35);
+}
 
     button:hover{
-      background: rgba(245,245,220,0.095);
-      border-color: rgba(245,245,220,0.22);
-    }
+  background: rgba(245,245,220,0.11);
+  border-color: rgba(245,245,220,0.26);
+  box-shadow: 0 0 0 2px rgba(245,245,220,0.06);
+}
     button.primary:hover{
       background: rgba(176,130,69,0.24);
       border-color: rgba(176,130,69,0.40);
