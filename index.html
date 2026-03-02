@@ -672,9 +672,19 @@ Quick response:
 async function onPost(){
   await copyToClipboard(taskCardPayload());
   showToast("Idea text copied. Create an idea and paste.");
-  // Optional: open your Tasks board view after copying
-  // window.open(TASK_BOARD_URL, "_blank", "noopener,noreferrer");
 }
+
+// Safe-bind (prevents one missing function from killing everything)
+if (els.shuffle) els.shuffle.addEventListener("click", renderShuffle);
+if (els.copy) els.copy.addEventListener("click", onCopy);
+if (els.post) els.post.addEventListener("click", onPost);
+if (els.reset) els.reset.addEventListener("click", (e) => {
+  e.preventDefault();
+  renderToday();
+  showToast("Reset to today.");
+});
+
+renderToday();
     
 
     els.shuffle.addEventListener("click", renderShuffle);
