@@ -437,7 +437,6 @@ button.primary:hover{
 
         <div class="controls">
           <button id="shuffle" class="primary" type="button" title="Random within today's focus">Shuffle</button>
-          <button id="copy" type="button">Copy</button>
           <button id="post" type="button">Copy for idea creation</button>
         </div>
       </div>
@@ -670,7 +669,12 @@ Quick response:
       await copyToClipboard(notePayload());
       showToast("Copied.");
     }
-
+async function onPost(){
+  await copyToClipboard(taskCardPayload());
+  showToast("Idea text copied. Create an idea and paste.");
+  // Optional: open your Tasks board view after copying
+  // window.open(TASK_BOARD_URL, "_blank", "noopener,noreferrer");
+}
     
 
     els.shuffle.addEventListener("click", renderShuffle);
