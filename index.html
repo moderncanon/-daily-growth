@@ -438,7 +438,7 @@ button.primary:hover{
         <div class="controls">
           <button id="shuffle" class="primary" type="button" title="Random within today's focus">Shuffle</button>
           <button id="copy" type="button">Copy</button>
-          <button id="post" type="button">Post to task board</button>
+          <button id="post" type="button">Copy for idea creation</button>
         </div>
       </div>
 
@@ -452,27 +452,24 @@ button.primary:hover{
           <h2 id="title">Today’s prompt</h2>
           <p id="promptText"></p>
 
-          <div class="micro" id="micro">
-            Write fast. Capture signal. This is a quick ideation moment, not a polished plan.
-          </div>
-        </section>
+       </section>
 
         <aside class="sidebar">
           <h3>7-minute flow</h3>
           <ul class="steps">
             <li><div class="num">1</div><div><b>First thought</b><span>No polishing. Start writing.</span></div></li>
-            <li><div class="num">2</div><div><b>One move</b><span>Pick one action you can ship this week.</span></div></li>
-            <li><div class="num">3</div><div><b>One signal</b><span>What proof will tell you it worked?</span></div></li>
+            <li><div class="num">2</div><div><b>One move</b><span>This is a quick ideation moment, not a polished plan.</span></div></li>
+            <li><div class="num">3</div><div><b>One signal</b><span>Spend no more than 7 mins on your idea.</span></div></li>
           </ul>
 
           <div class="sidehint">
-            “Post to task board” copies a rough task card (ideation mode) and opens your board so you can paste it.
+            “Copy for idea creation" copies a rough task card (ideation mode) so you can click the Create an idea button and paste it.
           </div>
         </aside>
       </div>
 
       <div class="footer">
-        <div>Cadence: MC-heavy. Tue/Thu = client strategy. One unique prompt per day-of-month slot.</div>
+        <div>One unique prompt per day-of-month slot.</div>
         <div><a class="linkish" href="#" id="reset" title="Reset to today's default prompt">Reset to today</a></div>
       </div>
     </div>
@@ -674,15 +671,7 @@ Quick response:
       showToast("Copied.");
     }
 
-    async function onPost(){
-      await copyToClipboard(taskCardPayload());
-      showToast("Task card copied.");
-      if(TASK_BOARD_URL && TASK_BOARD_URL.startsWith("http")){
-        window.open(TASK_BOARD_URL, "_blank");
-      } else {
-        showToast("Paste your task board URL in the code.");
-      }
-    }
+    
 
     els.shuffle.addEventListener("click", renderShuffle);
     els.copy.addEventListener("click", onCopy);
